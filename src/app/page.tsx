@@ -1,10 +1,13 @@
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Navbar from "./components/header/pages";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"
+import React, { useState } from 'react';
+import INote from "@/@types/Note";
 
 export default function Home() {
+
+
   return (
     <div className="p-10 bg-gray-100">
       <Navbar /> 
