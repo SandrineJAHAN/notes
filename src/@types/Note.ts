@@ -1,6 +1,5 @@
 interface INote {
   text: string;
-  timestamp: number;
   id: number;
 }
 

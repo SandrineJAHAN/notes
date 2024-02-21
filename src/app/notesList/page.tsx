@@ -1,12 +1,12 @@
 'use client'
 
-
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import Navbar from "../components/header/pages";
 import { useState } from "react";
 import INote from "@/@types/Note";
 import { log } from "console";
+import NotesAdd from "../notesAdd/page";
 
 export default function Notes() {
   const [notes, setNotes] = useState<INote[]>([
@@ -21,22 +21,53 @@ export default function Notes() {
     setNotes(updatedNotes);
   };
 
+  const [editingNoteId, setEditingNoteId] = useState<number | null>(null);
+  const [editingNoteText, setEditingNoteText] = useState('');
+
+  const handleEditNote = (id: number, text: string) => {
+    setEditingNoteId(id);
+    setEditingNoteText(text);
+  };
+
+  const handleSaveNote = (id: number) => {
+    setEditingNoteId(null);
+    const updatedNotes = notes.map((note) => {
+      if (note.id === id) {
+        return { ...note, text: editingNoteText };
+      }
+      return note;
+    });
+    setNotes(updatedNotes);
+  };
+
   return (
     <div>
       <div className="notesList m-10 text-center">
       <Navbar />
-      <Link href="/notesAdd">
-      <Button className="m-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">Ajouter une note</Button>
-      </Link>
-      <ul className="notesList">
+      <NotesAdd setNotes={setNotes} />
+      <ul className="notesList pt-6">
           {notes.map((note) => (
             <li key={note.id} className="notesList-li">
-              <span className="notesList-span">
+              <span className="notesList-span pr-16">
                 <button onClick={() => deleteNote(note.id)}>🗑</button>
               </span>
               <span className="notesList-span">
-                <input type="text" value={note.text} readOnly={true} />
-                <button>🖊</button>
+                {editingNoteId === note.id ? (
+                  <>
+                    <input
+                      type="text"
+                      value={editingNoteText}
+                      onChange={(e) => setEditingNoteText(e.target.value)}
+                      autoFocus
+                    />
+                    <button onClick={() => handleSaveNote(note.id)}>✔️</button>
+                  </>
+                ) : (
+                  <>
+                    <input type="text" value={note.text} readOnly={true} />
+                    <button onClick={() => handleEditNote(note.id, note.text)}>🖊️</button>
+                  </>
+                )}
               </span>
             </li>
           ))}
