@@ -14,6 +14,7 @@ export default function Notes() {
     { id: 2, text: 'Faire le repassage' },
     { id: 3, text: 'Faire le ménage' },
   ]); 
+  console.log("entree dans pagelist");
   
   const deleteNote = (id: number) => {
     console.log("entree dans la fonction delete");

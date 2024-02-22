@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import INote from '../../@types/Note';
+import LoginButton from '@/auth/loginButton';
+
 
 export default function Navbar(){
     return (
@@ -18,11 +19,7 @@ export default function Navbar(){
                             La liste de mes notes
                         </li>
                     </Link>
-                    <Link href="/loginForm">
-                        <li className="hover:text-blue-500 hover:underline pr-4">
-                            se connecter
-                        </li>
-                    </Link>
+                   <LoginButton />
                 </ul>
                 <div className="md:ml-auto mb-4 md:mb-0">
                     <Avatar className="w-20 h-20">
