@@ -4,18 +4,29 @@ import React, { useState, useEffect } from 'react';
 import LoginButton from "@/auth/loginButton";
 import { SessionProvider} from 'next-auth/react';
 import { getServerSession } from "next-auth";
+<<<<<<< HEAD
 import NextAuth from "next-auth/next";
 import { useCookies } from 'react-cookie';
 import { cookies } from "next/headers";
+=======
+import nextAuthApp from "../../pages/api/auth/[...nextauth]";
+// require('dotenv').config()
+>>>>>>> 76a49b76466ff3e3030fffa8b287fc9e261fabfd
 
 
 export default function Home() {
   
 const Home = async () => {
 
+<<<<<<< HEAD
   const cooks = cookies();
   const allCookies = cooks.getAll();
   console.log("allCookies",allCookies);
+=======
+  if (session) {
+    return <p>{JSON.stringify(session, null, 2)}</p>;
+  }
+>>>>>>> 76a49b76466ff3e3030fffa8b287fc9e261fabfd
   
   allCookies.forEach((cookie) => {
     console.log(cookie);
