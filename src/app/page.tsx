@@ -6,11 +6,9 @@ import LoginButton from "@/auth/loginButton";
 import { SessionProvider} from 'next-auth/react';
 import { getServerSession } from "next-auth";
 import NextAuth from "next-auth/next";
-
+import { useCookies } from 'react-cookie';
 
 export default function Home() {
-
-
   
   return (
     <SessionProvider>
