@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import LoginButton from '@/auth/loginButton';
+import DarkMode from '../darkMode/pages';
 
 
 export default function Navbar(){
@@ -19,7 +20,12 @@ export default function Navbar(){
                             La liste de mes notes
                         </li>
                     </Link>
+                    <li>
                    <LoginButton />
+                   </li>
+                   <li>
+                    <DarkMode />
+                   </li>
                 </ul>
                 <div className="md:ml-auto mb-4 md:mb-0">
                     <Avatar className="w-20 h-20">

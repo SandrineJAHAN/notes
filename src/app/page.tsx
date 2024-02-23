@@ -1,16 +1,10 @@
 'use client'
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Navbar from "./components/header/pages";
-import Link from "next/link";
-import { Button } from "@/components/ui/button"
 import React, { useState, useEffect } from 'react';
-import INote from "@/@types/Note";
 import LoginButton from "@/auth/loginButton";
-import { getServers } from "dns";
-import { getServerSession } from "next-auth";
-import nextAuthApp from "../../pages/api/auth/[...nextauth]";
-require('dotenv').config()
+import { SessionProvider} from 'next-auth/react';
+
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -30,6 +24,7 @@ export default function Home() {
   console.log(process.env.NEXT_PUBLIC_MY_VARIABLE);
   
   return (
+    <SessionProvider>
     <div className="p-10 bg-gray-100">
       <Navbar />
       <h1 className="text-4xl font-bold mb-4 pt-8 text-center">Bienvenue sur notre application de gestion des notes !</h1>
@@ -40,5 +35,6 @@ export default function Home() {
         <LoginButton />
       </div>
     </div>
+    </SessionProvider>
   );
 }
