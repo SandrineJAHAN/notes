@@ -8,8 +8,6 @@ import GitHubProvider from "next-auth/providers/github";
 const githubId = process.env.GITHUB_ID;
 const githubSecret = process.env.GITHUB_SECRET;
 
-
-
 // Affichage des identifiants GitHub dans la console
 console.log('githubId :', githubId);
 console.log('githubSecret :', githubSecret);
