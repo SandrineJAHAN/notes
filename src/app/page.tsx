@@ -10,7 +10,7 @@ import LoginButton from "@/auth/loginButton";
 import { getServers } from "dns";
 import { getServerSession } from "next-auth";
 import nextAuthApp from "../../pages/api/auth/[...nextauth]";
-require('dotenv').config()
+// require('dotenv').config()
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -22,12 +22,9 @@ export default function Home() {
   //  setSession(sessionData);
   // }, [session]);
 
-  // if (session) {
-  //   return <p>{JSON.stringify(session, null, 2)}</p>;
-  // }
-  console.log(process.env.GITHUB_ID);
-  console.log(process.env.GITHUB_SECRET);
-  console.log(process.env.NEXT_PUBLIC_MY_VARIABLE);
+  if (session) {
+    return <p>{JSON.stringify(session, null, 2)}</p>;
+  }
   
   return (
     <div className="p-10 bg-gray-100">
