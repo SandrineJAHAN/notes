@@ -1,18 +1,19 @@
 "use client"
 
-import { signIn } from "next-auth/react";
+import { signIn } from 'next-auth/react';
 
-export default function LoginButton() {
+const LoginButton = () => {
+  const handleSignIn = async () => {
+    await signIn('github', { callbackUrl: 'http://localhost:3000/notesList' });
+  };
+
   return (
     <div>
-      <button
-        onClick={async () => {
-          console.log('Clic sur le bouton de connexion');
-          await signIn('github');
-        }}
-      >
+      <button onClick={handleSignIn}>
         Connexion avec GitHub
       </button>
     </div>
   );
-}
+};
+
+export default LoginButton;
