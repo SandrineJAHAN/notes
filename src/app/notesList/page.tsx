@@ -17,7 +17,7 @@ export default function Notes() {
   console.log("entree dans pagelist");
   
   const deleteNote = (id: number) => {
-    console.log("entree dans la fonction delete");
+  //  console.log("entree dans la fonction delete");
     const updatedNotes = notes.filter(note => note.id !== id);
     setNotes(updatedNotes);
   };

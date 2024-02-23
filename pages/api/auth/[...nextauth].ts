@@ -5,10 +5,8 @@ import NextAuth from "next-auth/next";
 import GitHubProvider from "next-auth/providers/github";
 
 // Récupération des identifiants GitHub depuis les variables d'environnement
-const githubId = process.env.GITHUB_ID;
-const githubSecret = process.env.GITHUB_SECRET;
-
-
+const githubId = process.env.NEXT_PUBLIC_GITHUB_ID;
+const githubSecret = process.env.NEXT_PUBLIC_GITHUB_SECRET;
 
 // Affichage des identifiants GitHub dans la console
 console.log('githubId :', githubId);
@@ -23,8 +21,8 @@ if (!githubId || !githubSecret) {
 const nextAuthOptions: NextAuthOptions = {
 providers: [
   GitHubProvider({
-    clientId: process.env.GITHUB_ID,
-    clientSecret: process.env.GITHUB_SECRET
+    clientId: process.env.NEXT_PUBLIC_GITHUB_ID,
+    clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET
   })
 ],
     adapter: PrismaAdapter(prisma),
