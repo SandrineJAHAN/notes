@@ -4,24 +4,13 @@ import Navbar from "./components/header/pages";
 import React, { useState, useEffect } from 'react';
 import LoginButton from "@/auth/loginButton";
 import { SessionProvider} from 'next-auth/react';
+import { getServerSession } from "next-auth";
+import NextAuth from "next-auth/next";
 
 
 export default function Home() {
-  const [session, setSession] = useState(null);
 
-  // useEffect(async () => {
-  //   console.error("log");
-  //   const sessionData = await getServerSession(nextAuthApp);
-  //   console.error(sessionData);
-  //  setSession(sessionData);
-  // }, [session]);
 
-  // if (session) {
-  //   return <p>{JSON.stringify(session, null, 2)}</p>;
-  // }
-  console.log(process.env.GITHUB_ID);
-  console.log(process.env.GITHUB_SECRET);
-  console.log(process.env.NEXT_PUBLIC_MY_VARIABLE);
   
   return (
     <SessionProvider>
