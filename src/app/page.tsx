@@ -1,4 +1,3 @@
-'use client'
 
 import Navbar from "./components/header/pages";
 import React, { useState, useEffect } from 'react';
@@ -7,9 +6,22 @@ import { SessionProvider} from 'next-auth/react';
 import { getServerSession } from "next-auth";
 import NextAuth from "next-auth/next";
 import { useCookies } from 'react-cookie';
+import { cookies } from "next/headers";
+
 
 export default function Home() {
   
+const Home = async () => {
+
+  const cooks = cookies();
+  const allCookies = cooks.getAll();
+  console.log("allCookies",allCookies);
+  
+  allCookies.forEach((cookie) => {
+    console.log(cookie);
+    console.log(cookie.value);
+  });
+}
   return (
     <SessionProvider>
     <div className="p-10 bg-gray-100">
