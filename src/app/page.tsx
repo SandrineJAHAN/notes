@@ -3,14 +3,9 @@
 import Navbar from "./components/header/pages";
 import React, { useState, useEffect } from 'react';
 import LoginButton from "@/auth/loginButton";
-import { SessionProvider} from 'next-auth/react';
-import { getServerSession } from "next-auth";
-
-import NextAuth from "next-auth/next";
+import { SessionProvider, useSession} from 'next-auth/react';
 import { useCookies } from 'react-cookie';
-import { cookies } from "next/headers";
 
-import nextAuthApp from "../../pages/api/auth/[...nextauth]";
 
 
 
